@@ -5,7 +5,7 @@
   <p>All things space all the time.</p>
 
   <a href="#">Home</a>
-  <a href="#">About</a>
+  <a href="./about.php">About</a>
 
 <p class = "red-footer">
   &copy; 2017 RED Academy

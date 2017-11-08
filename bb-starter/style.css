@@ -14,7 +14,7 @@ body {
 
 p {
   font-size: 16px;
-  color: green;
+  /* color: green; */
 }
 
 .title {
@@ -22,11 +22,6 @@ p {
   font-size: 25px;
   width: 50vw;
 }
-
-/* h2 {
-  display: flex;
-  flex-direction: column;
-} */
 
 .body-text{
   display: grid;
@@ -37,8 +32,17 @@ p {
   padding-right: 20px;
 }
 
+.categories {
+  display: inline;
+
+}
+
 .red-footer {
   display: flex;
+  position: absolute;
+  bottom: 0%;
+  
+  
   /* justify-content: center; */
 }
   

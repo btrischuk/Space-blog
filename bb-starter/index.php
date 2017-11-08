@@ -3,10 +3,14 @@ include( 'lib/functions.php' );
 include( 'templates/header.php' );
 include( 'templates/sidebar.php');
 
-$posts = get_posts( './data/posts.json');
 // var_dump($posts); 
 
 echo '<div class = "body-text">';
+
+$posts = get_posts( './data/posts.json');
+usort($posts, function ($a,$b){
+    return $b['post_date'] - $a['post_date'];
+});
 
 foreach ($posts as $post ):
 
@@ -17,18 +21,14 @@ foreach ($posts as $post ):
   echo '<p>' . $post['author'] . '</p>';
   echo '<p>' . $post['content'] . '</p>';
 
-  // echo '<ul>';
-  echo '<p>' . $post['category'] . '</p>';
-  // echo '</ul>';
-  
-foreach ($posts as $key => $value) {
-  $sort[$key] = $value['post_date'];
-}
-  array_sort($sort, SORT_ASC, $posts);
+  $catCount = count($post['category']);
 
+  echo '<div class ="container">';
 
-
-
+for ($i = 0 ; $i < $catCount ; $i++ ){
+  echo '<p class = "categories">' . $post['category'][$i] . ', </p>';
+};
+echo '</div>';
 endforeach;
 echo '</div>';
 include( 'templates/footer.php');
@@ -43,7 +43,6 @@ include( 'templates/footer.php');
   // print_r( $movies_1);
   
   
-  //array_multisort($movie['stars'], SORT_ASC, SORT_STRING);
 
   // print_r( $posts);
   
